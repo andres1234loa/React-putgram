@@ -1,0 +1,48 @@
+//NOTA en los otros archivo va el path definido pero no es necesario
+//este es el  plugin que se instalo y que se va a usar  en la parte de abajo  en plugin
+const HtmlWebpackPlugin=require('html-webpack-plugin')
+
+//webpack tiene que exportar un objeto
+module.exports={
+    //la salida del archivo de commpilacion va esta contenida en output
+    output:{
+        //en la linea de abajo dice que el archivo de compilacion va ser el app.bundle.js
+        filename:'app.bundle.js'
+    },
+ 
+    //esta es la seccion de las reglas 
+    module:{
+        rules:[{
+            //que se use esta regla para todos los archivos de js 
+            test:/\.js$/,
+            //la linea de abajo es para que no haga las tranformaciones de los archivos de js de node modules 
+            exclude:/node_modules/,
+            use:{
+                loader:'babel-loader',// y lo que tiene que usar  para llevar acabo esta regla es babel
+                options:{
+                    //y dentro de las opciones de loader es usar preset-env o preset-react
+                    presets:[
+                        '@babel/preset-env',
+                        '@babel/preset-react'] // y que se use @babel-preset-env
+                }
+            }
+            
+        }] 
+       },
+          //plugin va ser adonde se van a definir lo plugin que vamos a usar, solamente los que hallamos instalado 
+    plugins:[
+        //este el plugin que requerimos en la parte de arriba
+        new HtmlWebpackPlugin({
+            //se usa solammente para indecarle que se renderice en ese index.html y se hace esta configuracion solmente si se crea un index.html para que renderice los componentes es decir para que inserte los componentes a una plantilla index.html
+            template:'src/index.html'
+        })
+     ],
+}
+
+
+
+“lint-fix”: “standard --fix”
+
+Y ejecutan:
+npm run lint-fix
+

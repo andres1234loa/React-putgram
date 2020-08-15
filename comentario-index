@@ -1,0 +1,4 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+//ReactDom aqui se esta usando ya que esta importado en la parte de arriba 
+ReactDom.render(<h1>hola andres, esta linea se esta editando</h1>,document.getElementById('app'))

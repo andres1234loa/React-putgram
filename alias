@@ -1,0 +1,23 @@
+"alias": ["petg-apip-and"],
+
+
+
+/* {
+    "version":2,
+    "name":"petgran",
+    "builds":[{"use":"@vercel/static-build","src":"package.json"}],
+    "routes":[
+        {
+            "src":"(.*).js",
+            "dest":"/$1.js"
+        },
+        {
+            "src":"(.*).json",
+            "dest":"/$1.json"
+        },
+        {
+            "src":"/.*",
+            "dest":"index.html"
+        }
+    ]
+} */
